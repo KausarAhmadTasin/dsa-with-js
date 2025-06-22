@@ -10,4 +10,4 @@ function fibonacci(n) {
   return fib;
 }
 
-console.log(fibonacci(1));
+console.log(fibonacci(6));
