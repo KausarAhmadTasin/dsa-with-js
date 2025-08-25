@@ -1,15 +1,15 @@
-function recursiveBinarySearch(arr, target) {
-  if (arr.length === 0) return -1;
+function recursiveBinarySearch(arr, target, right = arr.length - 1, left = 0) {
+  if (left > right) return -1;
 
-  const middleIndex = Math.floor(arr.length / 2);
+  const middleIndex = Math.floor((left + right) / 2);
 
   if (arr[middleIndex] === target) return middleIndex;
 
   if (target > arr[middleIndex]) {
-    return recursiveBinarySearch(arr.slice(middleIndex + 1), target);
+    return recursiveBinarySearch(arr, target, middleIndex + 1, left);
   }
 
-  return recursiveBinarySearch(arr.slice(0, middleIndex - 1), target);
+  return recursiveBinarySearch(arr, target, right, middleIndex - 1);
 }
 
 console.log(recursiveBinarySearch([-5, 2, 3, 4, 7, 13], 13));
